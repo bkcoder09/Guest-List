@@ -1,5 +1,7 @@
 <html>
-    <head> <title> Guest List </title> </head>
+    <head> <title> Guest List </title>
+    <link rel="stylesheet" href="style.css">
+    </head>
     <body>
         <center> 
         <h3> Guest List </h3>
@@ -10,8 +12,49 @@
         <div id="list">  </div>
         <br> <hr>
         <button type="button" onclick="sort()"> Sorted List </button>
+        <div id="sorted_list">  </div>
         <hr>
-        <span> <input placeholder="Search Name"> <button type="button" onclick="search()"> Search </button> </span>
+        <span> <input placeholder="Search Name" id="search_input"> <button type="button" onclick="search()"> Search </button> </span>
+        
     </center>
+    <script>
+        var names_array = [];
+function submit(){
+    var guest_name = "";
+     guest_name = document.getElementById("name1").value;
+     console.log(guest_name+"-------");
+     names_array.push(guest_name);
+     for(var a=0; a<names_array.length; a++){
+         console.log(names_array[a]);
+        document.getElementById("with_commas").innerHTML = names_array[a]+',';
+     }
+
+}
+function show(){
+  
+    var a=0;
+    for(a=0; a<names_array.length; a++){    
+        console.log(names_array[a]);
+       document.getElementById("list").innerHTML = names_array[a]+',';
+    }
+}
+function sort(){
+      
+    names_array.sort(guest_name); (this_line_has_no_errors_but_doesnt_work);
+    var a=0;
+    for(a=0; a<names_array.length; a++){
+        console.log(names_array[a]);
+       document.getElementById("sorted_list").innerHTML = names_array[a]+',';
+    }
+}
+function search(){
+    var search1 = document.getElementById("search_input").value;
+    var counter=0;
+    for(var i=0; i < names_array.length; i++ )
+    if ( search1 ==  names_array[i])
+      counter++;
+    
+}
+    </script>
     </body>
 </html>
